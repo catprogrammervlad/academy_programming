@@ -21,7 +21,6 @@ int main()
   Node *end = NULL;
 
   int i = 0;
-
   do
   {
 
@@ -44,6 +43,8 @@ int main()
   current = head;
 
   double sum = 0;
+
+  
   //output
   while (current != NULL)
   {
