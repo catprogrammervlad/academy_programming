@@ -1,9 +1,14 @@
+///
+// Swap the first half of the list with the second half
+///
+
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-using namespace std;
+    using namespace std;
 
 struct Node
 {
@@ -21,13 +26,18 @@ int main()
   Node *end = NULL;
 
   int i = 0;
+  int j = 0;
+  int swap_array[10]; // array to swap
+  int a;
   do
   {
 
     i++;
     current = new Node;
     current->next = NULL;
-    current->data = rand() % 10 + 1;
+    current->data = rand() % 10 + 1; // write data
+    swap_array[i - 1] = current->data;
+
     if (head == NULL)
     {
       head = current;
@@ -42,48 +52,65 @@ int main()
 
   current = head;
 
-  //output and write to array
-  int arr_swap[10];
-  int j = 0;
-  while (current != NULL)
-  {
-    cout << current->data << " ";
-    arr_swap[j] = current->data;
-    j++;
-    current = current->next;
-  }
-  cout << endl;
-
-  //rewrite
-  int arr_swap_1[10] = {1, 4, 2, 5, 4, 3, 2, 5, 4, 10};
-  j = 0;
+  //write to array to swap
   while (current != NULL)
   {
 
-    current->data = arr_swap_1[j];
-    j++;
     cout << current->data << " ";
-    current = current->next;
+    current = current->next; // next
   }
   cout << endl;
-
-  cout << "Show array:" << endl;
+  cout << endl;
+  // manipulation of array to swap element
+  int swap_array_2[10];
   for (int i = 0; i < 10; i++)
   {
-    cout << arr_swap[i] << " ";
+    if (i < 5)
+    {
+      swap_array_2[i] = swap_array[i + 5];
+    }
+    else
+    {
+      swap_array_2[i] = swap_array[i - 5];
+    }
   }
-  cout << endl;
+  // for (int i = 0; i < 10; i++)
+  // {
+  //   cout << ' ' << swap_array_2[i];
+  // }
 
-  // double x = head->data;
-  // head->data = end->data;
-  // end->data = x;
-  cout << "Show array2:" << endl;
+  i = 0;
+  do
+  {
+
+    current = new Node;
+    current->next = NULL;
+    current->data = swap_array_2[i]; // write data
+    i++;
+    if (i - 1 == 0)
+    {
+      head = current;
+      end = current;
+    }
+    else
+    {
+      end->next = current;
+      end = current;
+    }
+  } while (i < 10);
+
+  current = head;
+  // output
   while (current != NULL)
   {
+
     cout << current->data << " ";
-    current = current->next;
+    current = current->next; // next
   }
   cout << endl;
+  cout << endl;
+
+  current = head;
 
   system("pause");
   return 0;

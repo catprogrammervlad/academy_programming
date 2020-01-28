@@ -1,9 +1,13 @@
+///
+// Calculate the sum of list elements, which values belong to the interval[3, 6]
+///
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-using namespace std;
+    using namespace std;
 
 struct Node
 {
@@ -27,7 +31,7 @@ int main()
     i++;
     current = new Node;
     current->next = NULL;
-    current->data = rand() % 10 + 1;
+    current->data = rand() % 10 + 1; // write data 
     if (head == NULL)
     {
       head = current;
@@ -45,6 +49,8 @@ int main()
   double sum = 0;
 
   
+
+
   //output
   while (current != NULL)
   {
