@@ -31,7 +31,7 @@ int main()
     i++;
     current = new Node;
     current->next = NULL;
-    current->data = rand() % 10 + 1; // write data 
+    current->data = rand() % 10; // write data 
     if (head == NULL)
     {
       head = current;
@@ -42,7 +42,7 @@ int main()
       end->next = current;
       end = current;
     }
-  } while (i < 10);
+  } while (current->data != 9);
 
   current = head;
 
